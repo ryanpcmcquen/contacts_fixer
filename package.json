@@ -1,0 +1,24 @@
+{
+    "name": "contacts_csv_notes_parser",
+    "version": "0.1.0",
+    "description": "Parse emails and phone numbers from the notes field of your Contacts CSV export.",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "test": "node index.js sample.csv"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ryanpcmcquen/contacts_csv_notes_parser.git"
+    },
+    "keywords": [],
+    "author": "Ryan P. C. McQuen",
+    "license": "MPL-2.0",
+    "bugs": {
+        "url": "https://github.com/ryanpcmcquen/contacts_csv_notes_parser/issues"
+    },
+    "homepage": "https://github.com/ryanpcmcquen/contacts_csv_notes_parser#readme",
+    "dependencies": {
+        "csvtojson": "^2.0.10"
+    }
+}
