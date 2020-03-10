@@ -1,11 +1,13 @@
 const fs = require('fs');
 const path = require('path');
+const csv_to_json = require('csvtojson');
+const { parse } = require('json2csv');
+
 const csv_file_path =
     process.argv.find((arg) => {
         return /\.csv/.test(arg);
     }) || path.join(__dirname, 'Zoho Contacts.csv');
 
-const csv_to_json = require('csvtojson');
 
 const email_regex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/gi;
 const telephone_regexes = [
@@ -15,7 +17,7 @@ const telephone_regexes = [
 ];
 
 const parse_notes_field = (json_data) => {
-    json_data.forEach((row) => {
+    const new_data = json_data.map((row) => {
         const notes_lines = row.Notes.split('\n');
         const emails = notes_lines
             .map((note_line) => {
@@ -46,7 +48,11 @@ const parse_notes_field = (json_data) => {
             .filter(Boolean);
         // console.log(emails);
         console.log(row);
+        return row;
+
     });
+    const csv = parse(new_data);
+    console.log(csv);
 
     return;
 };
