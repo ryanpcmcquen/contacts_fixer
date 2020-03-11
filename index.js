@@ -39,14 +39,11 @@ const export_new_csv = (data) => {
 
 const phone_number_normalize = (phone_number) => {
     return phone_number.replace(/[^\d]/g, '').trim();
-    // if (phone_number.replace(/[^\d]/g, '').length !== 10) {
-    //     console.log(phone_number);
-    //     return phone_number;
-    // } else {
+
     //     return phone_number
     //         .replace(/[^\d]/g, '')
-    //         .replace(/(\d{3})(\d{3})(\d{4})/, '$1.$2.$3');
-    // }
+    //         .replace(/(\d{3})(\d{3})(\d{4})/, '$1.$2.$3')
+    //         .trim();
 };
 
 const parse_notes_field = (json_data) => {
@@ -82,6 +79,7 @@ const parse_notes_field = (json_data) => {
         }
         return row;
     });
+
     const csv = parse(new_data);
     // console.log(csv);
 
@@ -92,7 +90,6 @@ const read_file = () => {
     return csv_to_json()
         .fromFile(csv_file_path)
         .then((json_data) => {
-            // console.log(json_data);
             parse_notes_field(json_data);
         });
 };
