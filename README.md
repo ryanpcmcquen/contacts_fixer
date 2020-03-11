@@ -10,3 +10,11 @@ all emails and phone numbers found in
 the `Notes` field. It can easily be
 modified to parse data from other
 fields as well.
+
+### Usage:
+
+```
+npm install && npm start
+```
+
+It will create a new version of your original CSV with `NEW__` as a prefix.
