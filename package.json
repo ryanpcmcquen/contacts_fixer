@@ -1,5 +1,5 @@
 {
-    "name": "contacts_csv_notes_parser",
+    "name": "contacts_fixer",
     "version": "0.1.0",
     "description": "Parse emails and phone numbers from the notes field of your Contacts CSV export.",
     "main": "index.js",
@@ -9,15 +9,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/ryanpcmcquen/contacts_csv_notes_parser.git"
+        "url": "git+https://github.com/ryanpcmcquen/contacts_fixer.git"
     },
     "keywords": [],
     "author": "Ryan P. C. McQuen",
     "license": "MPL-2.0",
     "bugs": {
-        "url": "https://github.com/ryanpcmcquen/contacts_csv_notes_parser/issues"
+        "url": "https://github.com/ryanpcmcquen/contacts_fixer/issues"
     },
-    "homepage": "https://github.com/ryanpcmcquen/contacts_csv_notes_parser#readme",
+    "homepage": "https://github.com/ryanpcmcquen/contacts_fixer#readme",
     "dependencies": {
         "csvtojson": "^2.0.10",
         "json2csv": "^4.5.4"
