@@ -19,17 +19,11 @@ const telephone_regexes = [
 
 const parse_notes_field = (json_data) => {
     const new_data = json_data.map((row) => {
-        // const notes_lines = row.Notes.split('\n');
         if (row.Notes) {
             let emails = row.Notes.match(email_regex);
             if (emails && emails.length) {
                 row.Email += `;${emails.join(';')}`;
             }
-            // const emails = notes_lines.map((note_line) => {
-            // let emails = note_line.match(email_regex);
-            // if (emails && emails.length) {
-            // row.Email += `;${emails.join(';')}`;
-            // }
 
             let phone_numbers = telephone_regexes
                 .map((telephone_regex) => {
@@ -58,37 +52,6 @@ const parse_notes_field = (json_data) => {
                     })
                     .join(';')}`;
             }
-
-            // .filter(Boolean)
-            // .join(';')}`;
-            // console.log(note_line);
-            // if (/Email:/gi.test(note_line)) {
-            // row.Email += `;${note_line.match(email_regex).join(';')}`;
-
-            // } else {
-            // return telephone_regexes
-            // .map((telephone_regex) => {
-            // return note_line.match(telephone_regex);
-            // })
-
-            // .filter(Boolean)
-            // .map((phone_numbers) => {
-            // row.Mobile += `;${phone_numbers
-            // .map((phone_number) => {
-            //     return phone_number
-            //         .replace(/[^\d]/g, '')
-            //         .replace(
-            //             /(\d{3})(\d{3})(\d{4})/,
-            //             '$1.$2.$3'
-            //         );
-            // })
-            // .join(';')}`;
-            // });
-            // }
-            // })
-            // .filter(Boolean);
-            // console.log(emails);
-            // console.log(row);
         }
         return row;
     });
