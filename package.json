@@ -19,7 +19,7 @@
     },
     "homepage": "https://github.com/ryanpcmcquen/contacts_fixer#readme",
     "dependencies": {
-        "csvtojson": "^2.0.10",
+        "csvtojson": "^2.0.13",
         "json2csv": "^4.5.4"
     }
 }
